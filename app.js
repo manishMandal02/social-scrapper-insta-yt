@@ -1,3 +1,4 @@
+const dotenv = require('dotenv');
 const express = require('express');
 
 const http = require('http');
@@ -8,6 +9,8 @@ const scrapperRoutes = require('./routes/scrapper.route');
 const webhookScrapperRoutes = require('./routes/scrapperWebHook.route');
 
 const app = express();
+
+dotenv.config();
 
 app.use(cors());
 

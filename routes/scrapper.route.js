@@ -13,7 +13,7 @@ router.get('/yt', async (req, res) => {
 
       {
         headers: {
-          Authorization: 'Bearer 0961e5d5c686ffdad4de97388af53573',
+          Authorization: `Bearer ${process.env.BRIGHT_DATA_TOKEN}`,
           'Content-Type': 'application/json',
         },
       },
@@ -37,7 +37,7 @@ router.get('/insta', async (req, res) => {
 
       {
         headers: {
-          Authorization: 'Bearer 0961e5d5c686ffdad4de97388af53573',
+          Authorization: `Bearer ${process.env.BRIGHT_DATA_TOKEN}`,
           'Content-Type': 'application/json',
         },
       },

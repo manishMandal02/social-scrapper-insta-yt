@@ -10,22 +10,21 @@ router.get('/yt', async (req, res) => {
   try {
     await axios.post(
       'https://api.luminati.io/dca/trigger?collector=c_kud40o0s16hopttnu1&queue_next=1',
-
+      {
+        data,
+      },
       {
         headers: {
           Authorization: `Bearer ${process.env.BRIGHT_DATA_TOKEN}`,
           'Content-Type': 'application/json',
         },
-      },
-      {
-        data,
       }
     );
+    res.json({ status: 'success' });
   } catch (error) {
     console.log(error.response && error.response.data.message ? error.response.data.message : error.message);
+    res.json({ status: 'error', data: error });
   }
-
-  res.json({ status: 'success' });
 });
 
 router.get('/insta', async (req, res) => {
@@ -34,22 +33,21 @@ router.get('/insta', async (req, res) => {
   try {
     await axios.post(
       'https://api.luminati.io/dca/trigger_immediate?collector=c_kuc4ihta1b349jnh72',
-
+      {
+        data,
+      },
       {
         headers: {
           Authorization: `Bearer ${process.env.BRIGHT_DATA_TOKEN}`,
           'Content-Type': 'application/json',
         },
-      },
-      {
-        data,
       }
     );
+    res.json({ status: 'success' });
   } catch (error) {
     console.log(error.response && error.response.data.message ? error.response.data.message : error.message);
+    res.json({ status: 'error', data: error });
   }
-
-  res.json({ status: 'success' });
 });
 
 module.exports = router;

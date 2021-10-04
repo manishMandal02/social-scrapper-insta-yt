@@ -6,15 +6,19 @@ const router = express.Router();
 router.post('/yt', async (req, res) => {
   const dataReceived = req.body;
   //   const data = JSON.stringify([{ url: channelLink, count_videos: 10 }]);
+  
+  console.log({ status: 'success', data: dataReceived });
 
-  res.json({ status: 'success', data: dataReceived });
+  //   res.json({ status: 'success', data: dataReceived });
 });
 
 router.post('/insta', async (req, res) => {
   const dataReceived = req.body;
   //   const data = JSON.stringify([{ url: channelLink, count_videos: 10 }]);
 
-  res.json({ status: 'success', data: dataReceived });
+  console.log({ status: 'success', data: dataReceived });
+
+  //   res.json({ status: 'success', data: dataReceived });
 });
 
 module.exports = router;

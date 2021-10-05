@@ -13,7 +13,7 @@ router.post('/yt', async (req, res) => {
 
 router.post('/insta', async (req, res) => {
   const dataReceived = req.body;
-  console.log(req.body);
+  console.log(dataReceived);
   // console.log({ status: 'success', data: dataReceived });
 
   res.json({ status: 'success' });

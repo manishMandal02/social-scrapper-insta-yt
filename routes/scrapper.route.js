@@ -29,7 +29,7 @@ router.get('/yt', async (req, res) => {
 
 router.get('/insta', async (req, res) => {
   const socialName = req.query.socialName;
-  const data = JSON.stringify({ account: socialName, posts_number: 10 });
+  const data = JSON.stringify([{ account: socialName }]);
   try {
     await axios({
       method: 'post',
@@ -52,7 +52,7 @@ router.get('/insta', async (req, res) => {
     //     },
     //   }
     // );
-    res.json({ status: 'success' });
+    // res.json({ status: 'success' });
   } catch (error) {
     console.log(error.response && error.response.data.message ? error.response.data.message : error.message);
     res.json({ status: 'error', data: error });

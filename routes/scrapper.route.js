@@ -30,9 +30,13 @@ router.post('/yt', async (req, res) => {
 router.post('/insta', async (req, res) => {
   const socialName = req.body.socialName;
   const numPosts = req.body.numPosts;
-  const data = JSON.stringify({ account: socialName, posts_number: numPosts });
+
+  const data = JSON.stringify({ account: socialName, posts_number: numPosts.toString() });
   console.log(data);
   try {
+    if (!data.account) {
+      throw new Error('Please enter the instagram account');
+    }
     await axios({
       method: 'post',
       url: 'https://api.luminati.io/dca/trigger_immediate?collector=c_kuc4ihta1b349jnh72',

@@ -3,9 +3,10 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/yt', async (req, res) => {
-  const channelLink = req.query.channelLink;
-  const data = JSON.stringify({ url: channelLink, count_videos: '10' });
+router.post('/yt', async (req, res) => {
+  const channelLink = req.body.channelLink;
+  const numVideos = req.body.numVideos;
+  const data = JSON.stringify({ url: channelLink, count_videos: numVideos });
 
   console.log(data);
 
@@ -26,9 +27,10 @@ router.get('/yt', async (req, res) => {
   }
 });
 
-router.get('/insta', async (req, res) => {
-  const socialName = req.query.socialName;
-  const data = JSON.stringify({ account: socialName, posts_number: '12' });
+router.post('/insta', async (req, res) => {
+  const socialName = req.body.socialName;
+  const numPosts = req.body.numPosts;
+  const data = JSON.stringify({ account: socialName, posts_number: numPosts });
   console.log(data);
   try {
     await axios({

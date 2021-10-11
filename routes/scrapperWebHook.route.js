@@ -6,15 +6,15 @@ const router = express.Router();
 router.post('/yt', async (req, res) => {
   const dataReceived = req.body;
 
-  console.log({ status: 'success', data: dataReceived });
+  console.log(dataReceived);
 
   res.json({ status: 'success' });
 });
 
 router.post('/insta', async (req, res) => {
   const dataReceived = req.body;
-  
-  console.log({ status: 'success', data: dataReceived });
+
+  console.log(dataReceived);
 
   res.json({ status: 'success' });
 });

@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/yt', async (req, res) => {
   const channelLink = req.query.channelLink;
-  const data = JSON.stringify({ url: channelLink, count_videos: 10 });
+  const data = JSON.stringify({ url: channelLink, count_videos: '10' });
 
   console.log(data);
 

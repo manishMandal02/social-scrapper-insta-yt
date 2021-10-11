@@ -12,7 +12,7 @@ router.get('/yt', async (req, res) => {
   try {
     await axios({
       method: 'post',
-      url: 'https://api.luminati.io/dca/trigger?collector=c_kud40o0s16hopttnu1',
+      url: 'https://api.luminati.io/dca/trigger_immediate?collector=c_kud40o0s16hopttnu1',
       headers: {
         Authorization: `Bearer ${process.env.BRIGHT_DATA_TOKEN}`,
         'Content-Type': 'application/json',

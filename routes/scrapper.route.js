@@ -5,21 +5,20 @@ const router = express.Router();
 
 router.get('/yt', async (req, res) => {
   const channelLink = req.query.channelLink;
-  const data = JSON.stringify({ url: channelLink, count_videos: 10 });
+  const data = JSON.stringify([{ url: channelLink, count_videos: 10 }]);
+
+  console.log(data);
 
   try {
-    await axios.post(
-      'https://api.luminati.io/dca/trigger?collector=c_kud40o0s16hopttnu1&queue_next=1',
-      {
-        data,
+    await axios({
+      method: 'post',
+      url: 'https://api.luminati.io/dca/trigger?collector=c_kud40o0s16hopttnu1&queue_next=1',
+      headers: {
+        Authorization: `Bearer ${process.env.BRIGHT_DATA_TOKEN}`,
+        'Content-Type': 'application/json',
       },
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.BRIGHT_DATA_TOKEN}`,
-          'Content-Type': 'application/json',
-        },
-      }
-    );
+      data: data,
+    });
     res.json({ status: 'success' });
   } catch (error) {
     console.log(error.response && error.response.data.message ? error.response.data.message : error.message);
